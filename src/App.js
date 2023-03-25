@@ -1,8 +1,9 @@
-import Button from '~/conponents/Buttom';
-import './App.css';
-
 function App() {
-    return <Button />;
+    return (
+        <div>
+            <h1>Hello</h1>
+        </div>
+    );
 }
 
 export default App;
