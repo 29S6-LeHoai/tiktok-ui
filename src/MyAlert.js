@@ -1,7 +1,5 @@
 function MyAlert() {
-   return (
-    alert('')
-   ) 
+    return alert('');
 }
 
-export default MyAlert
+export default MyAlert;
