@@ -3,6 +3,8 @@
 
 :root {
     --primary: #e54a82;
+    --back: #000;
+    --text-color: #333;
 
     // Default layout
     --default-layout-header-height: 60px;
@@ -23,5 +25,13 @@ body {
     font-family: 'IBM Plex Sans', sans-serif;
     font-size: 1.6rem;
     line-height: 1.5;
+    --text-color: #333;
     text-rendering: optimizeSpeed;
+}
+
+input,
+button,
+[tabindex] {
+    border: none;
+    outline: none;
 }
