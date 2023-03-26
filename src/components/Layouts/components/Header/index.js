@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleXmark, faSpinner, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faCircleXmark, faSpinner, faMagnifyingGlass, faSignIn } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react/headless';
 import { useEffect, useState } from 'react';
 
@@ -8,6 +8,7 @@ import styles from './Header.module.scss';
 import images from '~/assets/images';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import Accounts from '~/components/AccountsItem';
+import Button from '~/components/Button';
 
 const cx = classNames.bind(styles);
 
@@ -16,8 +17,8 @@ function Header() {
 
     useEffect(() => {
         setTimeout(() => {
-            setSearchResult([1, 2, 3]);
-        }, 2000);
+            setSearchResult([]);
+        }, 0);
     }, []);
     return (
         <header className={cx('wapper')}>
@@ -52,7 +53,12 @@ function Header() {
                     </div>
                 </Tippy>
 
-                <div className={cx('action')}></div>
+                <div className={cx('action')}>
+                    <Button text>Upload</Button>
+                    <Button outline rightIcon={<FontAwesomeIcon icon={faSignIn} />} onClick={() => alert('onclick')}>
+                        Log in
+                    </Button>
+                </div>
             </div>
         </header>
     );
