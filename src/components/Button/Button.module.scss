@@ -1,4 +1,7 @@
 .wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     min-width: 100px;
     padding: 8px 14px;
     border-radius: 4px;
@@ -15,13 +18,19 @@
     &.disabled {
         pointer-events: none;
         opacity: 0.5;
-        user-select: none;
+        // user-select: none;
     }
 }
 
 .icon + .title,
 .title + .icon {
     margin-left: 8px;
+}
+
+.icon {
+    display: inline-block;
+    width: 24px;
+    text-align: center;
 }
 
 // Button type
