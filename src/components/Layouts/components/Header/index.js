@@ -26,6 +26,21 @@ const MENU_ITEM = [
     {
         icon: <FontAwesomeIcon icon={faEarthAsia} />,
         title: 'English',
+        children: {
+            title: 'language',
+            data: [
+                {
+                    type: 'langeage',
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    type: 'langeage',
+                    code: 'vi',
+                    title: 'Tiếng Việt',
+                },
+            ],
+        },
     },
 
     {
@@ -47,6 +62,16 @@ const MENU_ITEM = [
 
 function Header() {
     const [searchResult, setSearchResult] = useState([]);
+
+    // handle logic
+    const handleChange = (listItem) => {
+        switch (listItem.type) {
+            case 'language':
+                //logic
+                break;
+            default:
+        }
+    };
 
     useEffect(() => {
         setTimeout(() => {
@@ -92,7 +117,7 @@ function Header() {
                         Log in
                     </Button>
 
-                    <Menu items={MENU_ITEM}>
+                    <Menu items={MENU_ITEM} onChange={handleChange}>
                         <button className={cx('more-btn')}>
                             <FontAwesomeIcon icon={faEllipsisVertical} />
                         </button>
