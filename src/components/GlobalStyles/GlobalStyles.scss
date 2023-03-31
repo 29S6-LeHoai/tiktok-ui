@@ -42,3 +42,20 @@ a[href] {
     text-decoration: none;
     color: var(--text-color);
 }
+
+// custom css tippy
+
+body {
+    .tippy-content {
+        font-size: 1.6rem;
+        padding: 8px;
+    }
+
+    .tippy-box {
+        background-color: rgba(84, 84, 84, 0.92);
+    }
+
+    .tippy-arrow {
+        color: rgba(84, 84, 84, 0.92);
+    }
+}

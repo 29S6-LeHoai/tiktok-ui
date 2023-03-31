@@ -9,8 +9,15 @@ import {
     faCircleQuestion,
     faKeyboard,
     faMoon,
+    faCoins,
+    faGear,
+    faUser,
+    faSignOut,
 } from '@fortawesome/free-solid-svg-icons';
-import Tippy from '@tippyjs/react/headless';
+import icons from '~/components/icons';
+import Tippy from '@tippyjs/react';
+import 'tippy.js/dist/tippy.css';
+import Headless from '@tippyjs/react/headless';
 import { useEffect, useState } from 'react';
 
 import styles from './Header.module.scss';
@@ -21,8 +28,9 @@ import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
 
 const cx = classNames.bind(styles);
+const { MdOutlineCloudUpload, TbMessageCircle2 } = icons;
 
-const MENU_ITEM = [
+const MENU_ITEMS = [
     {
         icon: <FontAwesomeIcon icon={faEarthAsia} />,
         title: 'English',
@@ -60,9 +68,38 @@ const MENU_ITEM = [
     },
 ];
 
+const useMenu = [
+    {
+        icon: <FontAwesomeIcon icon={faUser} />,
+        title: 'View Profile',
+        to: '/@hoaa',
+    },
+
+    {
+        icon: <FontAwesomeIcon icon={faCoins} />,
+        title: 'Get Coin',
+        to: '/coin',
+    },
+
+    {
+        icon: <FontAwesomeIcon icon={faGear} />,
+        title: 'Setting',
+        to: '/setting',
+    },
+
+    ...MENU_ITEMS,
+
+    {
+        icon: <FontAwesomeIcon icon={faSignOut} />,
+        title: 'Log Out',
+        to: '/logout',
+        separate: true,
+    },
+];
+
 function Header() {
     const [searchResult, setSearchResult] = useState([]);
-
+    const currentUser = true;
     // handle logic
     const handleChange = (listItem) => {
         switch (listItem.type) {
@@ -85,7 +122,7 @@ function Header() {
                     <img src={images.logo} alt="logo tiktok" />
                 </div>
 
-                <Tippy
+                <Headless
                     interactive
                     visible={searchResult.length > 0}
                     render={(attrs) => (
@@ -109,18 +146,44 @@ function Header() {
                             <FontAwesomeIcon icon={faMagnifyingGlass} />
                         </button>
                     </div>
-                </Tippy>
+                </Headless>
 
                 <div className={cx('action')}>
-                    <Button text>Upload</Button>
-                    <Button primary onClick={() => alert('onclick')}>
-                        Log in
-                    </Button>
+                    {currentUser ? (
+                        <>
+                            <Tippy trigger="click" content="Upload Video" placement="bottom">
+                                <button className={cx('icon-btn')}>
+                                    <MdOutlineCloudUpload />
+                                </button>
+                            </Tippy>
 
-                    <Menu items={MENU_ITEM} onChange={handleChange}>
-                        <button className={cx('more-btn')}>
-                            <FontAwesomeIcon icon={faEllipsisVertical} />
-                        </button>
+                            <Tippy content="Inbox" placement="bottom">
+                                <button className={cx('icon-btn')}>
+                                    <TbMessageCircle2 />
+                                </button>
+                            </Tippy>
+                        </>
+                    ) : (
+                        <>
+                            <Button text>Upload</Button>
+                            <Button primary onClick={() => alert('onclick')}>
+                                Log in
+                            </Button>
+                        </>
+                    )}
+
+                    <Menu items={currentUser ? useMenu : MENU_ITEMS} onChange={handleChange}>
+                        {currentUser ? (
+                            <img
+                                src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/6c1e969719867c09acad53236a2490d3~c5_100x100.jpeg?x-expires=1680440400&x-signature=ctZpldzfnt0eApEmFINSh2G%2FmI4%3D"
+                                className={cx('user-avatar')}
+                                alt="Hoaa"
+                            />
+                        ) : (
+                            <button className={cx('more-btn')}>
+                                <FontAwesomeIcon icon={faEllipsisVertical} />
+                            </button>
+                        )}
                     </Menu>
                 </div>
             </div>
