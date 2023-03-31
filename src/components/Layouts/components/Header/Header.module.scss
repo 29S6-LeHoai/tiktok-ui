@@ -104,10 +104,23 @@
 }
 
 .icon-btn {
+    display: flex;
+    align-items: center;
+    position: relative;
     background-color: transparent;
     font-size: 2rem;
     margin-left: 24px;
     cursor: pointer;
+
+    .badge {
+        position: absolute;
+        right: -1px;
+        top: -4px;
+        font-size: 1.4rem;
+        background-color: red;
+        border-radius: 4px;
+        color: var(--white);
+    }
 }
 
 .user-avatar {

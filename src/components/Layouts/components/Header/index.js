@@ -14,7 +14,7 @@ import {
     faUser,
     faSignOut,
 } from '@fortawesome/free-solid-svg-icons';
-import icons from '~/components/icons';
+import { UploadIcon, InboxIcon, MessageIcon } from '~/components/Icons';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import Headless from '@tippyjs/react/headless';
@@ -26,9 +26,9 @@ import { Wrapper as PopperWrapper } from '~/components/Popper';
 import Accounts from '~/components/AccountsItem';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
+import Image from '~/components/Image';
 
 const cx = classNames.bind(styles);
-const { MdOutlineCloudUpload, TbMessageCircle2 } = icons;
 
 const MENU_ITEMS = [
     {
@@ -151,15 +151,22 @@ function Header() {
                 <div className={cx('action')}>
                     {currentUser ? (
                         <>
-                            <Tippy trigger="click" content="Upload Video" placement="bottom">
+                            <Tippy content="Upload Video" placement="bottom">
                                 <button className={cx('icon-btn')}>
-                                    <MdOutlineCloudUpload />
+                                    <UploadIcon />
                                 </button>
                             </Tippy>
 
                             <Tippy content="Inbox" placement="bottom">
                                 <button className={cx('icon-btn')}>
-                                    <TbMessageCircle2 />
+                                    <InboxIcon />
+                                </button>
+                            </Tippy>
+
+                            <Tippy content="Message" placement="bottom">
+                                <button className={cx('icon-btn')}>
+                                    <MessageIcon />
+                                    <span className={cx('badge')}>14</span>
                                 </button>
                             </Tippy>
                         </>
@@ -174,10 +181,12 @@ function Header() {
 
                     <Menu items={currentUser ? useMenu : MENU_ITEMS} onChange={handleChange}>
                         {currentUser ? (
-                            <img
+                            <Image
                                 src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/6c1e969719867c09acad53236a2490d3~c5_100x100.jpeg?x-expires=1680440400&x-signature=ctZpldzfnt0eApEmFINSh2G%2FmI4%3D"
                                 className={cx('user-avatar')}
-                                alt="Hoaa"
+                                alt="Image error"
+                                // fallback là trường hợp ảnh lỗi thì sẽ lấy ảnh khác
+                                fallback="https://lh3.googleusercontent.com/a/AGNmyxaVEA7i_t9VAM1eSW1S1luWUcJ2QLZ3SQYijGY0ag=s288"
                             />
                         ) : (
                             <button className={cx('more-btn')}>
