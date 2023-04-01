@@ -59,45 +59,48 @@ function Search() {
     };
 
     return (
-        <Headless
-            interactive
-            visible={showResult && searchResult.length > 0}
-            render={(attrs) => (
-                <div className={cx('search-result')} tabIndex="-1" {...attrs}>
-                    <PopperWrapper>
-                        <h4 className={cx('search-title')}>Accounts</h4>
-                        {searchResult.map((result) => (
-                            <Accounts key={result.id} data={result} />
-                        ))}
-                    </PopperWrapper>
-                </div>
-            )}
-            onClickOutside={handleHideResult}
-        >
-            <div className={cx('search')}>
-                <input
-                    ref={inputRef}
-                    value={searchValue}
-                    placeholder="Enter accounts and video"
-                    spellCheck={false}
-                    onChange={handleChange}
-                    onFocus={() => {
-                        setShowResult(true);
-                    }}
-                />
-
-                {!loadingResult && !!searchValue && (
-                    <button className={cx('clear-btn')} onClick={handleClear}>
-                        <FontAwesomeIcon icon={faCircleXmark} />
-                    </button>
+        //xử lí báo warring tippy
+        <div>
+            <Headless
+                interactive
+                visible={showResult && searchResult.length > 0}
+                render={(attrs) => (
+                    <div className={cx('search-result')} tabIndex="-1" {...attrs}>
+                        <PopperWrapper>
+                            <h4 className={cx('search-title')}>Accounts</h4>
+                            {searchResult.map((result) => (
+                                <Accounts key={result.id} data={result} />
+                            ))}
+                        </PopperWrapper>
+                    </div>
                 )}
+                onClickOutside={handleHideResult}
+            >
+                <div className={cx('search')}>
+                    <input
+                        ref={inputRef}
+                        value={searchValue}
+                        placeholder="Enter accounts and video"
+                        spellCheck={false}
+                        onChange={handleChange}
+                        onFocus={() => {
+                            setShowResult(true);
+                        }}
+                    />
 
-                {loadingResult && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
-                <button className={cx('search-btn')} onMouseDown={(e) => e.preventDefault()}>
-                    <FontAwesomeIcon icon={faMagnifyingGlass} />
-                </button>
-            </div>
-        </Headless>
+                    {!loadingResult && !!searchValue && (
+                        <button className={cx('clear-btn')} onClick={handleClear}>
+                            <FontAwesomeIcon icon={faCircleXmark} />
+                        </button>
+                    )}
+
+                    {loadingResult && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
+                    <button className={cx('search-btn')} onMouseDown={(e) => e.preventDefault()}>
+                        <FontAwesomeIcon icon={faMagnifyingGlass} />
+                    </button>
+                </div>
+            </Headless>
+        </div>
     );
 }
 

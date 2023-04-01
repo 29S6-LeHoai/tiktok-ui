@@ -43,6 +43,76 @@ const MENU_ITEMS = [
                     code: 'vi',
                     title: 'Tiếng Việt',
                 },
+                {
+                    type: 'langeage',
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    type: 'langeage',
+                    code: 'vi',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    type: 'langeage',
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    type: 'langeage',
+                    code: 'vi',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    type: 'langeage',
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    type: 'langeage',
+                    code: 'vi',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    type: 'langeage',
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    type: 'langeage',
+                    code: 'vi',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    type: 'langeage',
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    type: 'langeage',
+                    code: 'vi',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    type: 'langeage',
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    type: 'langeage',
+                    code: 'vi',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    type: 'langeage',
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    type: 'langeage',
+                    code: 'vi',
+                    title: 'Tiếng Việt',
+                },
             ],
         },
     },
