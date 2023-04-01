@@ -49,6 +49,15 @@ function Search() {
         setShowResult(false);
     };
 
+    // kiểm tra dâu cách đầu tiên nhập vào ô tìm kiếm
+    const handleChange = (e) => {
+        const searchValue = e.target.value;
+
+        if (!searchValue.startsWith(' ')) {
+            setSearchValue(searchValue);
+        }
+    };
+
     return (
         <Headless
             interactive
@@ -71,7 +80,7 @@ function Search() {
                     value={searchValue}
                     placeholder="Enter accounts and video"
                     spellCheck={false}
-                    onChange={(e) => setSearchValue(e.target.value)}
+                    onChange={handleChange}
                     onFocus={() => {
                         setShowResult(true);
                     }}
@@ -84,7 +93,7 @@ function Search() {
                 )}
 
                 {loadingResult && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
-                <button className={cx('search-btn')}>
+                <button className={cx('search-btn')} onMouseDown={(e) => e.preventDefault()}>
                     <FontAwesomeIcon icon={faMagnifyingGlass} />
                 </button>
             </div>

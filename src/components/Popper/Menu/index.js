@@ -9,7 +9,7 @@ import styles from './Menu.module.scss';
 
 const cx = classNames.bind(styles);
 
-function Menu({ children, items = [], onChange }) {
+function Menu({ children, items = [], onChange, hideOnClick = false }) {
     const [history, setHistory] = useState([{ data: items }]); // data: items là formet giống đứa con children
 
     const currentPosition = history[history.length - 1]; // lấy ra phần tử mảng đầu tiên
@@ -35,6 +35,7 @@ function Menu({ children, items = [], onChange }) {
         <Tippy
             delay={[0, 700]}
             interactive
+            hideOnClick={hideOnClick}
             placement="bottom-end"
             render={(attrs) => (
                 <div className={cx('content')} tabIndex="-1" {...attrs}>

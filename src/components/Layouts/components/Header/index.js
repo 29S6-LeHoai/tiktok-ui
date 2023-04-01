@@ -14,7 +14,9 @@ import {
 import { UploadIcon, InboxIcon, MessageIcon } from '~/components/Icons';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
+import { Link } from 'react-router-dom';
 
+import routesConfig from '~/config/routes';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
 import Button from '~/components/Button';
@@ -105,9 +107,9 @@ function Header() {
     return (
         <header className={cx('wapper')}>
             <div className={cx('inner')}>
-                <div className={cx('logo')}>
+                <Link to={routesConfig.home} className={cx('logo')}>
                     <img src={images.logo} alt="logo tiktok" />
-                </div>
+                </Link>
 
                 <Search />
 
