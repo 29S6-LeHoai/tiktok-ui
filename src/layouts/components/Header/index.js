@@ -16,7 +16,7 @@ import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import { Link } from 'react-router-dom';
 
-import routesConfig from '~/config/routes';
+import config from '~/config';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
 import Button from '~/components/Button';
@@ -31,85 +31,15 @@ const MENU_ITEMS = [
         icon: <FontAwesomeIcon icon={faEarthAsia} />,
         title: 'English',
         children: {
-            title: 'language',
+            title: 'Language',
             data: [
                 {
-                    type: 'langeage',
+                    type: 'language',
                     code: 'en',
                     title: 'English',
                 },
                 {
-                    type: 'langeage',
-                    code: 'vi',
-                    title: 'Tiếng Việt',
-                },
-                {
-                    type: 'langeage',
-                    code: 'en',
-                    title: 'English',
-                },
-                {
-                    type: 'langeage',
-                    code: 'vi',
-                    title: 'Tiếng Việt',
-                },
-                {
-                    type: 'langeage',
-                    code: 'en',
-                    title: 'English',
-                },
-                {
-                    type: 'langeage',
-                    code: 'vi',
-                    title: 'Tiếng Việt',
-                },
-                {
-                    type: 'langeage',
-                    code: 'en',
-                    title: 'English',
-                },
-                {
-                    type: 'langeage',
-                    code: 'vi',
-                    title: 'Tiếng Việt',
-                },
-                {
-                    type: 'langeage',
-                    code: 'en',
-                    title: 'English',
-                },
-                {
-                    type: 'langeage',
-                    code: 'vi',
-                    title: 'Tiếng Việt',
-                },
-                {
-                    type: 'langeage',
-                    code: 'en',
-                    title: 'English',
-                },
-                {
-                    type: 'langeage',
-                    code: 'vi',
-                    title: 'Tiếng Việt',
-                },
-                {
-                    type: 'langeage',
-                    code: 'en',
-                    title: 'English',
-                },
-                {
-                    type: 'langeage',
-                    code: 'vi',
-                    title: 'Tiếng Việt',
-                },
-                {
-                    type: 'langeage',
-                    code: 'en',
-                    title: 'English',
-                },
-                {
-                    type: 'langeage',
+                    type: 'language',
                     code: 'vi',
                     title: 'Tiếng Việt',
                 },
@@ -177,7 +107,7 @@ function Header() {
     return (
         <header className={cx('wapper')}>
             <div className={cx('inner')}>
-                <Link to={routesConfig.home} className={cx('logo')}>
+                <Link to={config.routes.home} className={cx('logo')}>
                     <img src={images.logo} alt="logo tiktok" />
                 </Link>
 
